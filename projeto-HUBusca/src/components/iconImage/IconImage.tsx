@@ -5,11 +5,11 @@ interface ComponenteImage{
   image: any;
 }
 
-export const IconImage:React.FC<ComponenteImage> =(props)=>{
+export const IconImage:React.FC<ComponenteImage> =({image})=>{
   return(
     <Avatar
         alt="Remy Sharp"
-        src="props"
+        src={image}
         sx={{ width: 56, height: 56 }}
     />
   )
