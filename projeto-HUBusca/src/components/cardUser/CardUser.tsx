@@ -3,15 +3,17 @@ import { IconImage } from "../iconImage/IconImage"
 import { IconSubtitle } from "../iconSubtitle/IconSubtitle"
 import location from "../../assets/img/location.png"
 
-export const CardUser:React.FC<any> =()=>{
+const CardUser:React.FC<any> =({user})=>{
   return(
     <article>
       <div>
-        <IconImage image="" />
-        <IconSubtitle title="Nome:" text="" />
-        <IconSubtitle title="Login:" text="" />
+        <IconImage image={user.avatar_url} />
+        <IconSubtitle title="Nome:" text={user.name} />
+        <IconSubtitle title="Login:" text={user.login} />
       </div>
-      <IconSubtitle image={location} title="Localização:" text="" />
+      <IconSubtitle image={location} title="Localização:" text={user.location} />
     </article>
   )
 }
+
+export default CardUser;

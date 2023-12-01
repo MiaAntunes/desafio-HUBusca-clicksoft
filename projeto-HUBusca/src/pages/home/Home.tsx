@@ -1,10 +1,15 @@
-import { CardUser } from "../../components/cardUser/CardUser"
+import  CardUser  from "../../components/cardUser/CardUser"
 import { Footer } from "../../components/footer/Footer"
 import { Header } from "../../components/header/Header"
+import { useRequestData } from "../../hooks/useRequestData"
 
 
 
 export const Home = () =>{
+  const [userGithub] = useRequestData([],"/users/MiaAntunes")
+  const userArray = Object.values(userGithub);
+
+  console.log(userGithub)
   return(
     <>
       <Header/>
@@ -19,8 +24,13 @@ export const Home = () =>{
             <input type="text" name="user" id="user" />
             <button type="submit">Buscar</button>
           </form>
-          !!! map do User fazer uma lógica para aparecer o cardUser só quando for pesquisado
-          <CardUser/>
+          {
+            userArray.map((user,index)=>{
+              return(
+                <CardUser user={user} key={index} />
+              )
+            })
+          }
         </section>
       </main>
       <Footer/>
