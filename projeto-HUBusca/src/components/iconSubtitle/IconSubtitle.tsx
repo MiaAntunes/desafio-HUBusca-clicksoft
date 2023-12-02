@@ -4,7 +4,7 @@ import React from "react"
 interface ComponenteIcon {
   image?: string| void;
   title: string;
-  text: string;
+  text: string | null | number;
 }
 
 export const IconSubtitle:React.FC<ComponenteIcon> =({image,title,text})=>{

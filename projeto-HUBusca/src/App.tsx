@@ -1,14 +1,14 @@
-import { GlobalStyled } from "./GlobalStyled"
-import { Router } from "./router/router"
+import { GlobalStyled } from "./GlobalStyled";
+import { GlobalState } from "./context/GlobalState";
+import { Router } from "./router/router";
 
 function App() {
-
   return (
-    <>
-      <GlobalStyled/>
-      <Router/>
-    </>
-  )
+    <GlobalState>
+      <GlobalStyled />
+      <Router />
+    </GlobalState>
+  );
 }
 
-export default App
+export default App;

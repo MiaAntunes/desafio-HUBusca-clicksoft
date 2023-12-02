@@ -1,6 +1,6 @@
 import  { useEffect, useState } from 'react'
 import axios from 'axios'
-import { BASE_URL } from '../contants/BaseUrl'
+import { BASE_URL, TOKEN_NAME } from '../contants/BaseUrl'
 
 
 
@@ -10,14 +10,18 @@ export const useRequestData = (estadoInicial:any, path:string) => {
     const [erro, setErro] = useState('')
     const [isLoading, setIsLoading] = useState(true);
 
-    const receberDados = () =>{
-        axios.get(`${BASE_URL}${path}`)
+    const receberDados = async () =>{
+        await axios.get(`${BASE_URL}${path}`,{
+            headers:{
+                Authorization:TOKEN_NAME
+            }
+        })
         .then((resposta) => {
+            setDados(resposta.data)
             setIsLoading(false);
-            setDados([resposta.data])
         })
         .catch((erro) => {
-            setErro(erro.response)
+            setErro(erro.message)
             setIsLoading(false);
         })
     }
