@@ -10,7 +10,7 @@ export const IconImage:React.FC<ComponenteImage> =({image})=>{
     <Avatar
         alt="Remy Sharp"
         src={image}
-        sx={{ width: 56, height: 56 }}
+        sx={{ width: 55, height: 56 }}
     />
   )
 }

@@ -1,10 +1,11 @@
 import global from "../../assets/img/Global.png"
+import { HeaderContainer, ImgLogo, TitleLogo } from "./HeaderStyled"
 
 export const Header =()=>{
   return(
-    <header>
-      <img src={global} alt="Icone do Logo" />
-      <h1>HUBusca</h1>
-    </header>
+    <HeaderContainer>
+      <ImgLogo src={global} alt="Icone do Logo" />
+      <TitleLogo>HUBusca</TitleLogo>
+    </HeaderContainer>
   )
 }

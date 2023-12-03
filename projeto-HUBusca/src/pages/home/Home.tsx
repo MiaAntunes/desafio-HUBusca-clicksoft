@@ -9,6 +9,7 @@ import { GlobalContext } from "../../context/GlobalState"
 import axios from "axios"
 import { BASE_URL, TOKEN_NAME } from "../../contants/BaseUrl"
 import { useState } from 'react'
+import { ButtonContainer, ButtonHome, FormHome, InputHome, LabelHome, MainContainer, SectionSearch, SectionTitle, TextHome, TitleHome } from "./HomeStyled"
 
 export const Home = () =>{
   const navigate = useNavigate()
@@ -38,29 +39,29 @@ export const Home = () =>{
     })
   }
 
-  console.log(form.username)
+  // console.log(form.username)
 
   return(
     <>
       <Header/>
-      <main>
-        <section>
-          <h2>Seja bem-vindo ao HUBusca, o pesquisador de usuários do github</h2>
-          <p>Aqui você pode pesquisar e encontrar os detalhes de todos usuários que você precisa.</p>
-        </section>
-        <section>
-          <form onSubmit={(event)=> saveUser(event)}>
-            <label htmlFor="username">Pesquise pelo nome do usuário</label>
-            <input type="text" name="username" id="username" value={form.username} onChange={onChange} placeholder="Digite o nome do usuário" />
-            <button type="submit" >Buscar</button>
-          </form>
+      <MainContainer>
+        <SectionTitle>
+          <TitleHome>Seja bem-vindo ao HUBusca, o pesquisador de usuários do github</TitleHome>
+          <TextHome>Aqui você pode pesquisar e encontrar os detalhes de todos usuários que você precisa.</TextHome>
+        </SectionTitle>
+        <SectionSearch>
+          <FormHome onSubmit={(event)=> saveUser(event)}>
+            <LabelHome htmlFor="username">Pesquise pelo nome do usuário</LabelHome>
+            <InputHome type="text" name="username" id="username" value={form.username} onChange={onChange} placeholder="Digite o nome do usuário" />
+            <ButtonHome type="submit" >Buscar</ButtonHome>
+          </FormHome>
           {
             detailsUser.length > 0?
             detailsUser.map((user:any ,index:number)=>{
              return(
-               <button key={index} onClick={()=>goToPostIdPage(navigate, user.name)}>
+               <ButtonContainer key={index} onClick={()=>goToPostIdPage(navigate, user.name)}>
                  <CardUser  user={user}  />
-               </button>
+               </ButtonContainer>
              )}):
              erro !== "" ? 
              (
@@ -70,8 +71,8 @@ export const Home = () =>{
               <></>
              )
           }
-        </section>
-      </main>
+        </SectionSearch>
+      </MainContainer>
       <Footer/>
     </>
   )
