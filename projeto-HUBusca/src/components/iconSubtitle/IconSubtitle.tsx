@@ -1,5 +1,6 @@
 
 import React from "react"
+import { ContainerImage, ContainerSubtitle, Image, Text, Title } from "./IconSubtitleStyled";
 
 interface ComponenteIcon {
   image?: string| void;
@@ -9,10 +10,12 @@ interface ComponenteIcon {
 
 export const IconSubtitle:React.FC<ComponenteIcon> =({image,title,text})=>{
   return(
-    <div>
-      <img src="props.image" alt="" />
-      <p>{title}</p>
-      <p>{text}</p>
-    </div>
+    <ContainerImage>
+      <Image src={image} alt="" />
+      <ContainerSubtitle>
+      <Title>{title}</Title>
+      <Text>{text}</Text>
+      </ContainerSubtitle>
+    </ContainerImage>
   )
 }
