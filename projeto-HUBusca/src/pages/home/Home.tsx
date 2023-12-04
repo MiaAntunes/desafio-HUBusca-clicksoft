@@ -3,7 +3,7 @@ import  CardUser  from "../../components/cardUser/CardUser"
 import { Footer } from "../../components/footer/Footer"
 import { Header } from "../../components/header/Header"
 import { goToPostIdPage } from "../../router/coordinator"
-import { ContextType, useContext } from "react"
+import { useContext } from "react"
 import useForm from "../../hooks/useForm"
 import { GlobalContext } from "../../context/GlobalState"
 import axios from "axios"
@@ -14,7 +14,7 @@ import { ButtonContainer, ButtonHome, FormHome, InputHome, LabelHome, MainContai
 export const Home = () =>{
   const navigate = useNavigate()
 
-  const context = useContext(GlobalContext) as ContextType;
+  const context = useContext(GlobalContext) as any;
   const {detailsUser ,setDetailsUser} = context 
 
   const { form, onChange} = useForm({

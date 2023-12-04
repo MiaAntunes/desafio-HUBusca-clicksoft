@@ -103,6 +103,7 @@ export const SectionSearch = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 
   box-shadow: 7px 7px 7px 0px rgba(0, 0, 0, 0.25);
   width: 80%;
@@ -115,11 +116,13 @@ export const SectionSearch = styled.section`
   @media screen and (min-width: 1201px) and (max-width: 2000px) {
     width: 40%;
     height: 60%;
+    padding: 1em;
   }
 
   @media screen and (min-width: 2001px) {
     width: 25%;
     height: 60%;
+    padding: 1em;
   }
 `;
 

@@ -4,37 +4,46 @@ import { goToHomePage } from "../../router/coordinator";
 import { useNavigate } from "react-router-dom";
 import { DetailsUser } from "../../components/detailsUser/DetailsUser";
 import { Footer } from "../../components/footer/Footer";
-import { ContextType, useContext } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
-
+import {
+  ButtonBack,
+  ContainerButtonBack,
+  ContainerSection,
+  ImgButton,
+  
+  MainContainerIdUser,
+  
+  SectionSearchIdUser,
+} from "./idUserStyled";
 
 export const IdUser = () => {
-  const context = useContext(GlobalContext) as ContextType;
+  const context = useContext(GlobalContext) as any;
   const { detailsUser } = context;
   const navigate = useNavigate();
-
-
 
   return (
     <>
       <Header />
-      <main>
-        <div>
-          <button onClick={()=>goToHomePage(navigate)}>
-            <img src={home} alt="Icone para voltar a Home" />
-            <p>Página Inicial</p>
-          </button>
-        </div>
-        <section>
-          {
-          detailsUser !== undefined ?
-            detailsUser.map((details: IUserGithub, index: number) => {
-              return <DetailsUser {...details} key={index} />;
-            }):
-            <></>
-          }
-        </section>
-      </main>
+      <MainContainerIdUser>
+        <ContainerButtonBack>
+          <ButtonBack onClick={() => goToHomePage(navigate)}>
+            <ImgButton src={home} alt="Icone para voltar a Home" />
+            Página Inicial
+          </ButtonBack>
+        </ContainerButtonBack>
+        <ContainerSection>
+          <SectionSearchIdUser>
+            {detailsUser !== undefined ? (
+              detailsUser.map((details: IUserGithub, index: number) => {
+                return <DetailsUser {...details} key={index} />;
+              })
+            ) : (
+              <></>
+            )}
+          </SectionSearchIdUser>
+        </ContainerSection>
+      </MainContainerIdUser>
       <Footer />
     </>
   );

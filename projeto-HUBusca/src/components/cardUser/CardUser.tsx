@@ -10,8 +10,8 @@ const CardUser: React.FC<any> = ({ user }) => {
       <ContainerUser>
         <IconImage image={user.avatar_url} />
         <div>
-          <IconSubtitle title="Nome:" text={user.name} />
-          <IconSubtitle title="Login:" text={user.login} />
+          <IconSubtitle image={false} title="Nome:" text={user.name} />
+          <IconSubtitle image={false} title="Login:" text={user.login} />
         </div>
       </ContainerUser>
       <IconSubtitle
