@@ -19,8 +19,6 @@ Este projeto é uma prova técnica elaborada para concorrer a uma vaga de estág
 
 
 
-
-
 ## Problemas Conhecidos e Limitações
 
 1. **Não está mostrando todos os usuário pesquisados**
@@ -57,4 +55,4 @@ Este projeto é uma prova técnica elaborada para concorrer a uma vaga de estág
 
 ## Deploy
 
-[Click aqui para ir ao site]()
+[Click aqui para ir ao site](https://desafio-hu-busca-clicksoft.vercel.app/)
